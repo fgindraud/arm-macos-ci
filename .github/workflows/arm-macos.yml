@@ -6,8 +6,7 @@ jobs:
         runs-on: macos-latest
         steps:
             - run: git clone https://gitlab.inria.fr/erable/kissplice.git
-            - run: cd kissplice
-            - run: cmake -S . -B build -DUSE_BUNDLED_BCALM=ON
+            - run: cmake -S kissplice -B build -DUSE_BUNDLED_BCALM=ON
             - run: cmake --build build -j3
             - run: cmake --install build
             - run: cd build && make test
