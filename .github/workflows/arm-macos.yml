@@ -5,8 +5,9 @@ jobs:
     build_and_test:
         runs-on: macos-latest
         steps:
+            - run: brew install brewsci/bio/bcalm
             - run: git clone https://gitlab.inria.fr/erable/kissplice.git
             - run: cmake -S kissplice -B build -DCMAKE_INSTALL_PREFIX=prefix
-            - run: cmake --build build
+            - run: cmake --build build -j3
             - run: cmake --install build
             - run: cd build && make test
