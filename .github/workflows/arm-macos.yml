@@ -5,8 +5,8 @@ jobs:
     build_and_test:
         runs-on: macos-latest
         steps:
-            - run: git clone --recursive https://github.com/fgindraud/gatb-core
-            - run: cmake -S gatb-core -B build
+            - run: git clone --recursive https://github.com/fgindraud/bcalm
+            - run: cmake -S bcalm -B build
             - run: cmake --build build
             - run: ls build/
             - run: false # stop there until bcalm fixed
