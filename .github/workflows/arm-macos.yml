@@ -5,7 +5,7 @@ jobs:
     build_and_test:
         runs-on: macos-latest
         steps:
-            - run: brew install brewsci/bio/bcalm
+            - run: brew install doxygen brewsci/bio/bcalm
             - run: git clone https://gitlab.inria.fr/erable/kissplice.git
             - run: cmake -S kissplice -B build
             - run: cmake --build build -j3
