@@ -8,11 +8,10 @@ jobs:
             - run: git clone --recursive https://github.com/fgindraud/bcalm
             - run: cmake -S bcalm -B build
             - run: cmake --build build
-            - run: ls build/
-            - run: false # stop there until bcalm fixed
-            - run: brew install fgindraud/bio/bcalm
+            - run: cp build/bcalm /usr/bin/
+            - run: true #brew install fgindraud/bio/bcalm
             - run: git clone https://gitlab.inria.fr/erable/kissplice.git
-            - run: cmake -S kissplice -B build -DCMAKE_INSTALL_PREFIX=prefix
-            - run: cmake --build build -j3
-            - run: cmake --install build
-            - run: cd build && make test
+            - run: cmake -S kissplice -B build2 -DCMAKE_INSTALL_PREFIX=prefix
+            - run: cmake --build build2 -j3
+            - run: cmake --install build2
+            - run: cd build2 && ctest --output-on-failure
