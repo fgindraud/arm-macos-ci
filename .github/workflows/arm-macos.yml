@@ -5,13 +5,8 @@ jobs:
     build_and_test:
         runs-on: macos-latest
         steps:
-            - run: git clone --recursive https://github.com/fgindraud/bcalm
-            - run: cmake -S bcalm -B build
-            - run: cmake --build build
-            - run: cp build/bcalm /usr/local/bin/
-            - run: true #brew install fgindraud/bio/bcalm
             - run: git clone https://gitlab.inria.fr/erable/kissplice.git
-            - run: cmake -S kissplice -B build2 -DCMAKE_INSTALL_PREFIX=prefix
-            - run: cmake --build build2 -j3
-            - run: cmake --install build2
-            - run: cd build2 && ctest --output-on-failure
+            - run: cmake -S kissplice -B build -DUSE_BUNDLED_BCALM=ON -DCMAKE_INSTALL_PREFIX=prefix
+            - run: cmake --build build -j3
+            - run: cmake --install build
+            - run: cd build && ctest --output-on-failure
