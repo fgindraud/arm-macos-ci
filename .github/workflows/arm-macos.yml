@@ -11,6 +11,11 @@ jobs:
 #            - run: kissplice --version
             - run: git clone https://gitlab.inria.fr/erable/kissplice.git
             - run: cmake -S kissplice -B build -DUSE_BUNDLED_BCALM=ON -DCMAKE_INSTALL_PREFIX=prefix
-            - run: cmake --build build
+            - run: cmake --build build -j3
             - run: cmake --install build
             - run: cd build && ctest --output-on-failure
+            - name: Test data
+              uses: actions/upload-artifact@v4
+              with:
+                name: test-data
+                path: kissplice/tests/
