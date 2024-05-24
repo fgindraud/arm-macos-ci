@@ -5,12 +5,12 @@ jobs:
     build_and_test:
         runs-on: macos-latest
         steps:
-            - run: brew tap fgindraud/bio
-            - run: brew install --build-from-source kissplice
-            - run: echo $PATH
-            - run: kissplice --version
-#            - run: git clone https://gitlab.inria.fr/erable/kissplice.git
-#            - run: cmake -S kissplice -B build -DUSE_BUNDLED_BCALM=ON -DCMAKE_INSTALL_PREFIX=prefix
-#            - run: cmake --build build -j3
-#            - run: cmake --install build
-#            - run: cd build && ctest --output-on-failure
+#            - run: brew tap fgindraud/bio
+#            - run: brew install --build-from-source kissplice
+#            - run: echo $PATH
+#            - run: kissplice --version
+            - run: git clone https://gitlab.inria.fr/erable/kissplice.git
+            - run: cmake -S kissplice -B build -DUSE_BUNDLED_BCALM=ON -DCMAKE_INSTALL_PREFIX=prefix
+            - run: cmake --build build
+            - run: cmake --install build
+            - run: cd build && ctest --output-on-failure
