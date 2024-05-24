@@ -14,8 +14,9 @@ jobs:
             - run: cmake --build build -j3
             - run: cmake --install build
             - run: cd build && ctest --output-on-failure
-            - name: Test data
+            - name: Retrieve test result files
+              if: failure()
               uses: actions/upload-artifact@v4
               with:
-                name: test-data
+                name: test-result-files
                 path: kissplice/tests/
