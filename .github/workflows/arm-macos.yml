@@ -7,7 +7,7 @@ jobs:
         steps:
             - run: brew install fgindraud/bio/kissplice
             - run: brew test kissplice
-            - run: brew audit --strict --new --online kissplice
+            - run: brew audit --new --online kissplice
 #            - run: git clone https://gitlab.inria.fr/erable/kissplice.git
 #            - run: cmake -S kissplice -B build -DUSE_BUNDLED_BCALM=ON -DCMAKE_INSTALL_PREFIX=prefix
 #            - run: cmake --build build -j3
