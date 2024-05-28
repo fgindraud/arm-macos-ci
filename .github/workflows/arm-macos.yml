@@ -8,6 +8,7 @@ jobs:
             - run: brew developer on
             - run: brew install --verbose fgindraud/bio/kissplice
             - run: brew test kissplice
+            - run: strings /opt/homebrew/Cellar/kissplice/2.6.5/libexec/kissplice/bcalm | grep -C3 shim
             - run: brew audit --verbose --strict --new --online kissplice
 #            - run: git clone https://gitlab.inria.fr/erable/kissplice.git
 #            - run: cmake -S kissplice -B build -DUSE_BUNDLED_BCALM=ON -DCMAKE_INSTALL_PREFIX=prefix
