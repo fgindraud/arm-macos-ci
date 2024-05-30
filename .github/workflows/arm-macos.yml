@@ -9,7 +9,8 @@ jobs:
 #            - run: brew test kissplice
 #            - run: brew audit --strict --new --online kissplice
             - run: git clone https://gitlab.inria.fr/erable/kissplice.git
-            - run: kissplice  -r kissplice/sample_example/mock1.fq -r kissplice/sample_example/mock2.fq -r kissplice/sample_example/virus1.fq -r kissplice/sample_example/virus2.fq 
+            - run: kissplice -r kissplice/sample_example/mock1.fq -v || true
+            - run: kissplice -r kissplice/sample_example/mock1.fq -r kissplice/sample_example/mock2.fq -r kissplice/sample_example/virus1.fq -r kissplice/sample_example/virus2.fq -v
 #            - run: cmake -S kissplice -B build -DUSE_BUNDLED_BCALM=ON -DCMAKE_INSTALL_PREFIX=prefix
 #            - run: cmake --build build -j3
 #            - run: cmake --install build
